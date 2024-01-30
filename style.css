@@ -1,13 +1,60 @@
+main{
+    margin: auto;
+    text-align: center;
+}
+
 .jatekter{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
-    width: 1000px;
     margin: auto;
+    width: 500px;
+}
+
+.jatekter .element p{
+    color: white;
+    font-size: 100px;
+    margin: auto;
+    margin-top: 20px
 }
 
 .element{
     background-color: gray;
-    width: 10%;
+    border: 2px solid black;
+    width: 150px;
+    height: 150px;
     color: white;
+    margin: auto;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .jatekter{
+        width: 400px;
+    }
+    
+    .jatekter .element p{
+        font-size: 60px;   
+    }
+    
+    .element{
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .jatekter{
+        width: 300px;
+    }
+    
+    .jatekter .element{
+        font-size: 20px;
+        margin-top: 0px;
+    }
+    
+    .element{
+        width: 75px;
+        height: 75px;
+    }
 }

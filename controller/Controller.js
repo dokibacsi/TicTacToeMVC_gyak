@@ -9,8 +9,8 @@ class Controller{
         
         for (let index = 0; index < 9; index++) {
             this.gameSpace = new JatekTer(this.parentElement, index)
+            
         }
-
         $(window).on("kockaraKattint", (event)=>{
             if(this.gameModel.getCheckTheEnd() === "Tovább"){
                 console.log(this.gameModel.getCheckTheEnd())

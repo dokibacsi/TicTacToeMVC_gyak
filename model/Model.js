@@ -33,15 +33,15 @@ class Model {
     getCheckTheEnd() {
         let horCheck = this.#horizontalVictory();
         let verCheck = this.#verticalVictory();
-        let diaCheck = this.#diagonalVictory();
 
-        if (horCheck.indexOf("OOO") > -1 || verCheck.indexOf("OOO") > -1 || diaCheck.indexOf("OOO") > -1) {
+        if (horCheck.indexOf("OOO") > -1 || verCheck.indexOf("OOO") > -1) {
             return "O nyert";
-        } else if (horCheck.indexOf("XXX") > -1 || verCheck.indexOf("XXX") > -1 || diaCheck.indexOf("XXX") > -1) {
+        } else if (horCheck.indexOf("XXX") > -1 || verCheck.indexOf("XXX") > -1) {
             return "X nyert";
         } else if (this.#moves === 9) {
             return "Döntetlen!";
         }
+        console.log(this.#list)
         return "Tovább";
     }
 
@@ -53,9 +53,11 @@ class Model {
                 check += "@";
             }
         }
-        check += "@";
+        
+        
         console.log(check.indexOf("XXX"), check.indexOf("OOO"));
         return check;
+
     }
 
     #verticalVictory() {
@@ -67,35 +69,11 @@ class Model {
                     check += "@";
                 }
             }
-            check += "@";
         }
+        console.log(check)
         console.log(check.indexOf("XXX"), check.indexOf("OOO"));
         return check;
     }
-
-    #diagonalVictory() {
-        let check1 = "";
-        let check2 = "";
-
-        for (let i = 0; i < 9; i += 4) {
-            check1 += this.#list[i];
-            if (i !== 8) {
-                check1 += "@";
-            }
-        }
-
-        for (let i = 2; i < 7; i += 2) {
-            check2 += this.#list[i];
-            if (i !== 6) {
-                check2 += "@";
-            }
-        }
-
-        console.log(check1.indexOf("XXX"), check1.indexOf("OOO"));
-        console.log(check2.indexOf("XXX"), check2.indexOf("OOO"));
-    }
-
-
 }
 
 export default Model;
